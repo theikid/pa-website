@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "parisetailleurs-website",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "Paris et Ailleurs",
   "version": "0.1.0",
   "license": "0BSD",
   "scripts": {
@@ -14,9 +14,27 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "gatsby": "^2.23.12",
+    "gatsby-image": "^2.4.16",
+    "gatsby-plugin-google-analytics": "^2.3.13",
+    "gatsby-plugin-react-helmet": "^3.3.10",
+    "gatsby-plugin-robots-txt": "^1.5.1",
+    "gatsby-plugin-sass": "^2.3.12",
+    "gatsby-plugin-sharp": "^2.6.27",
+    "gatsby-plugin-sitemap": "^2.4.11",
+    "gatsby-source-filesystem": "^2.3.24",
+    "gatsby-source-graphql": "^2.7.1",
+    "gatsby-source-instagram": "^0.8.0",
+    "gatsby-transformer-sharp": "^2.5.13",
+    "node-sass": "^4.14.1",
+    "normalize.css": "^8.0.1",
+    "prop-types": "^15.7.2",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "react-helmet": "^6.1.0",
+    "react-masonry-css": "^1.0.14",
+    "react-slick": "^0.27.7"
   },
   "devDependencies": {
     "prettier": "2.0.5"
@@ -25,7 +43,10 @@
     "type": "git",
     "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
   },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  }
+  "browserslist": [
+    "> 1%",
+    "> 5% in FR",
+    "last 4 versions",
+    "Edge 15"
+  ]
 }
