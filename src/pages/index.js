@@ -48,7 +48,7 @@ const Index = () => {
             <meta property="og:site_name" content={siteTitle} />
             <meta name="apple-mobile-web-app-capable" content="yes" />
             <meta name="apple-mobile-web-app-title" content={siteName} />
-            <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" sizes="180x180" />
+            <link rel="apple-touch-icon" href={favicon + "?h=180&w=180"} sizes="180x180" />
             <link rel="icon" type="image/png" sizes="16x16" href={favicon + "?h=16&w=16"} />
             <link rel="icon" type="image/png" sizes="32x32" href={favicon + "?h=32&w=32"} />
             <body id="landing" />
