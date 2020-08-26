@@ -7,24 +7,30 @@ import '../scss/_landing.scss';
 const Index = () => {
   const data = useStaticQuery(graphql`
       {
-        datoCmsSite {
-          globalSeo {
-            siteName
-            facebookPageUrl
-            fallbackSeo {
-              description
+        datocms {
+          _site {
+            favicon {
+              url
             }
-            titleSuffix
+            globalSeo {
+              siteName
+              facebookPageUrl
+              titleSuffix
+              fallbackSeo {
+                description
+              }
+            }
           }
-          locale
         }
       }
   `);
 
-  const { datoCmsSite } = data;
-  let siteName = datoCmsSite.globalSeo.siteName;
-  let siteTitle = siteName + datoCmsSite.globalSeo.titleSuffix;
-  let siteDescription = datoCmsSite.globalSeo.fallbackSeo.description;
+  const { datocms } = data;
+  let seo = datocms._site.globalSeo;
+  let siteName = seo.siteName;
+  let siteTitle = siteName + seo.titleSuffix;
+  let siteDescription = seo.fallbackSeo.description;
+  let favicon = datocms._site.favicon.url;
 
 
   return (
@@ -38,8 +44,13 @@ const Index = () => {
             {/* General tags */}
             <title>{siteTitle}</title>
             <meta name="description" content={siteDescription} />
-             {/* OpenGraph tags */}
-             <meta property="og:site_name" content={siteTitle} />
+            {/* OpenGraph tags */}
+            <meta property="og:site_name" content={siteTitle} />
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+            <meta name="apple-mobile-web-app-title" content={siteName} />
+            <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" sizes="180x180" />
+            <link rel="icon" type="image/png" sizes="16x16" href={favicon + "?h=16&w=16"} />
+            <link rel="icon" type="image/png" sizes="32x32" href={favicon + "?h=32&w=32"} />
             <body id="landing" />
         </Helmet>
           <div id="content-wrapper">
