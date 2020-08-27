@@ -1,5 +1,6 @@
 import React from 'react';
-import Helmet from 'react-helmet';
+// import Helmet from 'react-helmet';
+import { HelmetDatoCms } from 'gatsby-source-datocms';
 import {useStaticQuery, graphql} from 'gatsby';
 import Img from 'gatsby-image';
 import '../scss/_landing.scss';
@@ -7,10 +8,9 @@ import '../scss/_landing.scss';
 const Index = () => {
   const data = useStaticQuery(graphql`
       {
-        datocms {
-          _site {
-            favicon {
-              url
+        datoCmsSite {
+            faviconMetaTags {
+              ...GatsbyDatoCmsFaviconMetaTags
             }
             globalSeo {
               siteName
@@ -18,41 +18,47 @@ const Index = () => {
               titleSuffix
               fallbackSeo {
                 description
+                image {
+                  fixed(width: 1200) {
+                    src
+                  }
+                }
               }
             }
-          }
         }
       }
   `);
 
-  const { datocms } = data;
-  let seo = datocms._site.globalSeo;
+  const { datoCmsSite } = data;
+  let seo = datoCmsSite.globalSeo;
   let siteName = seo.siteName;
   let siteTitle = siteName + seo.titleSuffix;
   let siteDescription = seo.fallbackSeo.description;
-  let favicon = datocms._site.favicon.url;
-
+  let ogimage = seo.fallbackSeo.image.fixed.src;
 
   return (
       <>
-      <Helmet
+      <HelmetDatoCms
             htmlAttributes={{
                 lang   : 'fr',
                 prefix : 'og: http://ogp.me/ns#'
             }}
+            favicon={datoCmsSite.faviconMetaTags}
         >
             {/* General tags */}
             <title>{siteTitle}</title>
             <meta name="description" content={siteDescription} />
             {/* OpenGraph tags */}
-            <meta property="og:site_name" content={siteTitle} />
+            <meta property="og:site_name" content={siteName} />
+            <meta property="og:title" content={siteTitle} />
+            <meta property="og:url" content="https://www.parisetailleurs.fr" />
+            <meta property="og:description" content="" />
+            <meta property="og:type" content="website" />
+            <meta property="og:image" content={ogimage} />
             <meta name="apple-mobile-web-app-capable" content="yes" />
             <meta name="apple-mobile-web-app-title" content={siteName} />
-            <link rel="apple-touch-icon" href={favicon + "?h=180&w=180"} sizes="180x180" />
-            <link rel="icon" type="image/png" sizes="16x16" href={favicon + "?h=16&w=16"} />
-            <link rel="icon" type="image/png" sizes="32x32" href={favicon + "?h=32&w=32"} />
             <body id="landing" />
-        </Helmet>
+        </HelmetDatoCms>
           <div id="content-wrapper">
             YOP
           </div>
