@@ -1,0 +1,18 @@
+@mixin for-phone-only { // 599px
+    @media (max-width: 37.4375rem) { @content; }
+}
+@mixin for-tablet-portrait-up { // 600px
+    @media (min-width: 37.5rem) { @content; }
+}
+@mixin for-tablet-landscape-up { // 900px
+    @media (min-width: 56.25rem) { @content; }
+}
+@mixin up-to-tablet-landscape { // 899px
+    @media (max-width: 56.1875rem) { @content; }
+}
+@mixin for-desktop-up { // 1200px
+    @media (min-width: 75rem) { @content; }
+}
+@mixin for-big-desktop-up { // 1600px
+    @media (min-width: 100rem) { @content; }
+}

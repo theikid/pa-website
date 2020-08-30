@@ -1,0 +1,54 @@
+body {
+    color: #000;
+}
+
+h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
+    // font-family: $font-family-title;
+
+    // br {
+    //     display: none;
+
+    //     @include for-tablet-landscape-up {
+    //         display: inline;
+    //     }
+    // }
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.375rem;
+
+    @include for-tablet-landscape-up {
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+    }
+}
+
+strong,
+.text-bold {
+    font-weight: bold;
+}
+
+.text-italic {
+    font-style: italic;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+// .text-black {
+//     font-weight: 900;
+// }
+
+// .text-white {
+//     color: #fff;
+// }
+
+// .text-green {
+//     color: $green;
+// }

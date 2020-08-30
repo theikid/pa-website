@@ -1,9 +1,8 @@
 import React from 'react';
-// import Helmet from 'react-helmet';
 import { HelmetDatoCms } from 'gatsby-source-datocms';
 import {useStaticQuery, graphql} from 'gatsby';
 import Img from 'gatsby-image';
-import '../scss/_landing.scss';
+import '../scss/main.scss';
 
 const Index = () => {
   const data = useStaticQuery(graphql`
@@ -26,10 +25,18 @@ const Index = () => {
               }
             }
         }
+        datoCmsQuote {
+          image {
+            fluid(maxWidth: 1920, maxHeight: 800, imgixParams: { fm: "jpg", auto: "compress" }) {
+              ...GatsbyDatoCmsFluid
+            }
+          }
+          quote
+        }
       }
   `);
 
-  const { datoCmsSite } = data;
+  const { datoCmsSite, datoCmsQuote } = data;
   let seo = datoCmsSite.globalSeo;
   let siteName = seo.siteName;
   let siteTitle = siteName + seo.titleSuffix;
@@ -59,8 +66,15 @@ const Index = () => {
             <meta name="apple-mobile-web-app-title" content={siteName} />
             <body id="landing" />
         </HelmetDatoCms>
-          <div id="content-wrapper">
-            YOP
+          <div id="global-wrapper">
+            <section id="quote">
+            <div id="quote-text" dangerouslySetInnerHTML={{ __html: datoCmsQuote.quote }}></div>
+            <div id="quote-bg">
+                <Img
+                    fluid={datoCmsQuote.image.fluid}
+                />
+            </div>
+            </section>
           </div>
       </>
   );
