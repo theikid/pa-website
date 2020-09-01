@@ -85,20 +85,28 @@ img {
 
 #instagrid {
     h3 {
-        font-size: 1rem;
+        font-size: 0.875rem;
         line-height: 2rem;
         font-weight: 600;
         margin: 0 0 2rem;
         text-align: center;
-        letter-spacing: 0.25rem;
-    }
-    .slick-slide {
-        padding: 0 8px;
-        box-sizing: border-box;
-        .gatsby-image-wrapper {
-            border:1px solid #F2F2F2;
+        letter-spacing: 0.125rem;
+        @include for-tablet-portrait-up {
+            letter-spacing: 0.25rem;
+            font-size: 1rem;
         }
     }
+    
+    .gatsby-image-wrapper {
+        border:1px solid #F2F2F2;
+    }
+    
+    .slick-slide > div {
+        margin: 0 8px;
+      }
+      .slick-list {
+        margin: 0 -8px;
+      }
 }
 
 footer {
@@ -106,5 +114,9 @@ footer {
     padding:1.5rem 0 1.25rem;
     font-size: 0.875rem;
     line-height: 0.875rem;
+    text-align: center;
+    @include for-tablet-landscape-up {
+        text-align:left;
+    }
 }
 
