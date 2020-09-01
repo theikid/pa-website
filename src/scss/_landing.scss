@@ -1,5 +1,6 @@
 @import './responsive';
-@import './_utils';
+@import './variables';
+@import './utils';
 
 
 body {
@@ -31,6 +32,14 @@ img {
     // &.lazy-loaded {
     //     opacity: 1;
     // }
+}
+
+.container {
+    max-width: 1328px;
+    padding-left: 24px;
+    padding-right: 24px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 
@@ -70,5 +79,32 @@ img {
         }
         
     }
+}
+
+// INSTAGRAM
+
+#instagrid {
+    h3 {
+        font-size: 1rem;
+        line-height: 2rem;
+        font-weight: 600;
+        margin: 0 0 2rem;
+        text-align: center;
+        letter-spacing: 0.25rem;
+    }
+    .slick-slide {
+        padding: 0 8px;
+        box-sizing: border-box;
+        .gatsby-image-wrapper {
+            border:1px solid #F2F2F2;
+        }
+    }
+}
+
+footer {
+    background-color: #F7FBFA;
+    padding:1.5rem 0 1.25rem;
+    font-size: 0.875rem;
+    line-height: 0.875rem;
 }
 

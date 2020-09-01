@@ -1,9 +1,13 @@
+@import './variables';
+
 body {
     color: #000;
 }
 
 h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
-    // font-family: $font-family-title;
+    font-family: $font-family;
+    text-transform: uppercase;
+    font-size: 8rem;
 
     // br {
     //     display: none;
