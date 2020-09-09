@@ -2,7 +2,7 @@
   "name": "parisetailleurs-website",
   "private": true,
   "description": "Paris et Ailleurs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
