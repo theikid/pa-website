@@ -1,12 +1,51 @@
-nav ul {
+@import './responsive';
+
+ul {
     list-style-type: none;
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
+.m-t {
+    margin-top: 3rem;
+    @include for-tablet-portrait-up {
+        margin-top: 3.5rem;
+    }
+}
 
 
 .m-b {
+    margin-bottom: 3rem;
+    @include for-tablet-portrait-up {
+        margin-bottom: 3.5rem;
+    }
+}
+
+.m-b-xl {
     margin-bottom: 3.5rem;
+    @include for-tablet-portrait-up {
+        margin-bottom: 6rem;
+    }
+}
+
+.p-t {
+    padding-top: 3rem;
+    @include for-tablet-portrait-up {
+        padding-top: 3.5rem;
+    }
+}
+
+.p-b {
+    padding-bottom: 3rem;
+    @include for-tablet-portrait-up {
+        padding-bottom: 3.5rem;
+    }
+}
+
+.p-b-xl {
+    padding-bottom: 3.5rem;
+    @include for-tablet-portrait-up {
+        padding-bottom: 6rem;
+    }
 }

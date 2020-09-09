@@ -8,6 +8,14 @@
 
 @font-face {
     font-family: 'Campton';
+    src: url('../fonts/campton-thin.woff2') format('woff2'),
+        url('../fonts/campton-thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Campton';
     src: url('../fonts/campton-extralight.woff2') format('woff2'),
         url('../fonts/campton-extralight.woff') format('woff');
     font-weight: 200;

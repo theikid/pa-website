@@ -7,14 +7,16 @@ import '../scss/_carousel.scss';
 
 const Carousel = (props) => {
     const {
-        children,  infinite, responsive, slidesToShow
+        children,  infinite, responsive, arrows, slidesToShow, autoplay, autoplaySpeed
     } = props;
 
     return (
         <div className="carousel-wrapper">
             <ReactSlick
                 dots={true}
-                arrows={false}
+                arrows={arrows}
+                autoplay={autoplay}
+                autoplaySpeed={autoplaySpeed}
                 centerPadding={16}
                 lazyload="ondemand"
                 responsive={responsive}

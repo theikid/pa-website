@@ -1,0 +1,44 @@
+@import '../variables';
+
+.contact-card {
+    h3 {
+        font-size: 1.125rem;
+        line-height: 1.125rem;
+        font-weight: 600;
+        margin: 2rem 0 0.875rem;
+        text-align: left;
+        letter-spacing: 0.125rem;
+        color:$green;
+        @include for-tablet-portrait-up {
+            margin: 2rem 0 1.5rem;
+            letter-spacing: 0.25rem;
+            font-size: 1.25rem;
+            line-height: 1.25rem;
+        }
+    }
+    .contact-biography p {
+        font-size: 1rem;
+        line-height: 1.75rem;
+        text-align: left;
+        letter-spacing: 0.05rem;
+        margin: 0;
+        @include for-tablet-portrait-up {
+            line-height: 2rem;
+        }
+    }
+
+    .contact-methods {
+        margin-top: 1.5rem;
+        & li + li {
+            margin-top: 1rem;
+        }
+        a {
+            font-size: 1.125rem;
+            color:black;
+            font-weight: 600;
+            &:hover {
+                color:$green;
+            } 
+        }
+    }
+}

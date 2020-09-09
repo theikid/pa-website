@@ -62,6 +62,7 @@
     }
 }
 .slick-slide {
+    outline: none;
     float: left;
     height: 100%;
     min-height: 1px;
@@ -109,8 +110,8 @@
 
 .slick-dots
 {
-    position: absolute;
-    bottom: -25px;
+    // position: absolute;
+    // bottom: -25px;
 
     display: block;
 
