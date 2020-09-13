@@ -434,6 +434,7 @@ const Index = () => {
                                           fluid={node.localFile.childImageSharp.fluid}
                                           alt="Voir sur Instagram"
                                           title="Voir sur Instagram"
+                                          durationFadeIn={300}
                                       />
                                   </a>
                               </div>

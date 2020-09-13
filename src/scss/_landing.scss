@@ -949,15 +949,18 @@ a {
             }
         }
 
-        &:hover {
-            border: 1px solid #BBEAE7;
-            .gatsby-image-wrapper {
-                picture {
-                    opacity: 0.4;
-                }
-            }
-            .btn-play {
-                transform: scale(1.06);
+        @include for-tablet-landscape-up {
+            &:hover {
+                
+                    border: 1px solid #BBEAE7;
+                    .gatsby-image-wrapper {
+                        picture {
+                            opacity: 0.4;
+                        }
+                    }
+                    .btn-play {
+                        transform: scale(1.06);
+                    }
             }
         }
     }
@@ -1043,11 +1046,12 @@ a {
                 transition: opacity 0.8s cubic-bezier(0.57, 0.56, 0.12, 1);
             }
         }
-
-        &:hover {
-            .gatsby-image-wrapper {
-                picture {
-                    opacity: 0.4;
+        @include for-tablet-landscape-up {
+            &:hover {
+                .gatsby-image-wrapper {
+                    picture {
+                        opacity: 0.4;
+                    }
                 }
             }
         }
