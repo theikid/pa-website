@@ -10,6 +10,11 @@
 @mixin up-to-tablet-landscape { // 899px
     @media (max-width: 56.1875rem) { @content; }
 }
+
+@mixin up-to-desktop { // 1199px
+    @media (max-width: 74.9375rem) { @content; }
+}
+
 @mixin for-desktop-up { // 1200px
     @media (min-width: 75rem) { @content; }
 }

@@ -35,6 +35,13 @@ const Index = () => {
               }
             }
         }
+        datoCmsNavigation {
+          linkN1
+          linkN2
+          linkN3
+          linkN4
+          linkN5
+        }
         datoCmsIntro {
           introTitle
           introText
@@ -147,7 +154,7 @@ const Index = () => {
       }
   `);
 
-  const { datoCmsSite, datoCmsIntro, datoCmsRencontre, datoCmsStep, datoCmsPourquoi, datoCmsHonoraire, datoCmsTestimony, datoCmsContactblock, datoCmsVideosIgtv, datoCmsQuote, allInstaNode } = data;
+  const { datoCmsSite, datoCmsNavigation, datoCmsIntro, datoCmsRencontre, datoCmsStep, datoCmsPourquoi, datoCmsHonoraire, datoCmsTestimony, datoCmsContactblock, datoCmsVideosIgtv, datoCmsQuote, allInstaNode } = data;
   let seo = datoCmsSite.globalSeo;
   let siteName = seo.siteName;
   let siteTitle = siteName + seo.titleSuffix;
@@ -184,20 +191,17 @@ const Index = () => {
             <header className="header container m-b">
             <img src={logo} alt="Logo Paris et Ailleurs" className="logo"/>
             <img src={header} alt="Header Paris et Ailleurs" className="header_image"/>
-                
-                <label className="menu-icon" for="menu-btn" id="mobile-menu-btn">
-                  <input className="menu-btn" type="checkbox" id="menu-btn" />
-                  <div className="menu-wrapper">
-                    <div className="navicon"><span className="burger-line"></span></div>
-                    <ul className="menu">
-                      <li><a href="#work">Chasseuses immobilier</a></li>
-                      <li><a href="#about">Avec vous à chaque étape</a></li>
-                      <li><a href="#careers">Pourquoi faire appel à nous ?</a></li>
-                      <li><a href="#contact">Témoignages</a></li>
-                      <li><a href="#contact">Nous contacter</a></li>
-                    </ul>
-                  </div>
+            <input className="menu-btn" type="checkbox" id="menu-btn" />
+                <label className="menu-icon" htmlFor="menu-btn" id="mobile-menu-btn">
+                <div className="navicon"><span className="burger-line"></span></div>
                 </label>
+                    <ul className="menu">
+                      <li><a data-scroll href="#intro">{datoCmsNavigation.linkN1}</a></li>
+                      <li><a data-scroll href="#etapes">{datoCmsNavigation.linkN2}</a></li>
+                      <li><a data-scroll href="#pourquoi">{datoCmsNavigation.linkN3}</a></li>
+                      <li><a data-scroll href="#temoignages">{datoCmsNavigation.linkN4}</a></li>
+                      <li><a data-scroll href="#contact">{datoCmsNavigation.linkN5}</a></li>
+                    </ul>
           </header>
           <section id="intro">
               <div className="intro-bg">
@@ -271,8 +275,8 @@ const Index = () => {
                     </ul>
                 </div>
             </section>
-            <section id="testimonies">
-            <div className="testimonies-wrapper container p-t p-b">
+            <section id="temoignages">
+            <div className="temoignages-wrapper container p-t p-b">
                 <h2 className="m-b">{datoCmsTestimony.titre}</h2>
                 <Carousel
                     infinite={false}
@@ -306,7 +310,7 @@ const Index = () => {
                 >
                       {datoCmsTestimony.imagesTestimonies.map(testimony => {
                               return (
-                                  <div className="testimony" key={testimony.originalId} >
+                                  <div className="temoignage" key={testimony.originalId} >
                                       <Img
                                           fluid={testimony.fluid}
                                           // alt={video.thumbnail.alt}
