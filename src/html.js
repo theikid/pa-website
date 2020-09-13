@@ -27,7 +27,7 @@ export default function HTML(props) {
     __html: `
     var scroll = new SmoothScroll('a[href*="#"]', {
    
-      offset: 32,
+      offset: 250,
       speed: 300,
       
       // History
@@ -44,7 +44,7 @@ export default function HTML(props) {
   };
   
   
-  // document.addEventListener('scrollStart', closeMenu, false);
+  document.addEventListener('scrollStop', closeMenu, false);
 
 
   

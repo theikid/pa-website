@@ -222,7 +222,7 @@ a {
         @include up-to-desktop {
             &:checked ~  .menu {
                 background-color: $green;
-                max-height: 540px;
+                max-height: 280px;
                 padding-bottom: 1rem;
             }
 
