@@ -8,7 +8,10 @@ import '../scss/main.scss';
 import Carousel from '../components/Carousel';
 import ContactCard from '../components/ContactCard';
 
+import logo from "../images/paris_et_ailleurs_logo.png";
+import header from "../images/header_image.jpg";
 import birds from "../images/birds.jpg";
+
 
 
 const Index = () => {
@@ -35,6 +38,11 @@ const Index = () => {
         datoCmsIntro {
           introTitle
           introText
+          photo {
+            fluid(maxWidth: 1400, maxHeight: 1580, imgixParams: { fm: "jpg", auto: "compress" }) {
+              ...GatsbyDatoCmsFluid
+            }
+          }
         }
         datoCmsRencontre {
           titre
@@ -168,17 +176,47 @@ const Index = () => {
             <meta property="og:image" content={ogimage} />
             <meta name="apple-mobile-web-app-capable" content="yes" />
             <meta name="apple-mobile-web-app-title" content={siteName} />
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
             <body id="landing" />
         </HelmetDatoCms>
-          <div id="global-wrapper" className="m-b">
+
+          <div id="global-wrapper">
+            <header className="header container m-b">
+            <img src={logo} alt="Logo Paris et Ailleurs" className="logo"/>
+            <img src={header} alt="Header Paris et Ailleurs" className="header_image"/>
+                
+                <label className="menu-icon" for="menu-btn" id="mobile-menu-btn">
+                  <input className="menu-btn" type="checkbox" id="menu-btn" />
+                  <div className="menu-wrapper">
+                    <div className="navicon"><span className="burger-line"></span></div>
+                    <ul className="menu">
+                      <li><a href="#work">Chasseuses immobilier</a></li>
+                      <li><a href="#about">Avec vous à chaque étape</a></li>
+                      <li><a href="#careers">Pourquoi faire appel à nous ?</a></li>
+                      <li><a href="#contact">Témoignages</a></li>
+                      <li><a href="#contact">Nous contacter</a></li>
+                    </ul>
+                  </div>
+                </label>
+          </header>
           <section id="intro">
-              <div className="intro-wrapper container p-t p-b">
+              <div className="intro-bg">
+              <div className="intro-wrapper container">
               <div className="intro-content">
                   <h1 className="m-b" dangerouslySetInnerHTML={{ __html: datoCmsIntro.introTitle}}></h1>
                   <p>{datoCmsIntro.introText}</p>
               </div>
               </div>
+              </div>
+               <div className="intro-image">
+                  <Img
+                        fluid={datoCmsIntro.photo.fluid}
+                        // alt={video.thumbnail.alt}
+                        // title={video.thumbnail.title}
+                  />
+              </div>
           </section>
+         
           <section id="rencontre" className="container m-t m-b-xl">
             <img src={birds} alt="Birds" className="birds"/>
             <h2 className="m-b">{datoCmsRencontre.titre}</h2>
@@ -399,8 +437,8 @@ const Index = () => {
                       })}
                 </Carousel>
             </section>
+            <footer><div className="container">© Paris et ailleurs 2020 - Tous droits réservés</div></footer>
           </div>
-          <footer><div className="container">© Paris et ailleurs 2020 - Tous droits réservés</div></footer>
       </>
   );
 };
