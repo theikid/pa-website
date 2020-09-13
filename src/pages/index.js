@@ -192,16 +192,16 @@ const Index = () => {
             <img src={logo} alt="Logo Paris et Ailleurs" className="logo"/>
             <img src={header} alt="Header Paris et Ailleurs" className="header_image"/>
             <input className="menu-btn" type="checkbox" id="menu-btn" />
-                <label className="menu-icon" htmlFor="menu-btn" id="mobile-menu-btn">
-                <div className="navicon"><span className="burger-line"></span></div>
-                </label>
-                    <ul className="menu">
-                      <li><a data-scroll href="#intro">{datoCmsNavigation.linkN1}</a></li>
-                      <li><a data-scroll href="#etapes">{datoCmsNavigation.linkN2}</a></li>
-                      <li><a data-scroll href="#pourquoi">{datoCmsNavigation.linkN3}</a></li>
-                      <li><a data-scroll href="#temoignages">{datoCmsNavigation.linkN4}</a></li>
-                      <li><a data-scroll href="#contact">{datoCmsNavigation.linkN5}</a></li>
-                    </ul>
+            <label className="menu-icon" htmlFor="menu-btn" id="mobile-menu-btn">
+            <div className="navicon"><span className="burger-line"></span></div>
+            </label>
+                <ul className="menu">
+                  <li><a data-scroll href="#intro">{datoCmsNavigation.linkN1}</a></li>
+                  <li><a data-scroll href="#etapes">{datoCmsNavigation.linkN2}</a></li>
+                  <li><a data-scroll href="#pourquoi">{datoCmsNavigation.linkN3}</a></li>
+                  <li><a data-scroll href="#temoignages">{datoCmsNavigation.linkN4}</a></li>
+                  <li><a data-scroll href="#contact">{datoCmsNavigation.linkN5}</a></li>
+                </ul>
           </header>
           <section id="intro">
               <div className="intro-bg">

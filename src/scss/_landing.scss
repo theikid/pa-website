@@ -84,8 +84,10 @@ a {
     .menu-icon {
         cursor: pointer;
         display: inline-block;
+        background-color: #fff;
         user-select: none;
         z-index: 100;
+        width:0;
     
         @include for-desktop-up {
             position: relative;
@@ -94,7 +96,6 @@ a {
         }
 
         .navicon {
-
                 padding-top: 10px;
                 display:block;
                 height:20px;
@@ -145,6 +146,7 @@ a {
     }
 
     .menu {
+        
         background-color: white;
         order:2;
         margin: 1.5rem 0 0 0;
@@ -218,6 +220,7 @@ a {
 
     .menu-btn {
         display: none;
+        -webkit-backface-visibility: hidden;
 
         &:focus {
             outline:none;
@@ -230,17 +233,17 @@ a {
                 padding-bottom: 1rem;
             }
 
-            &:checked ~ .navicon span {
+            &:checked ~ .menu-icon .navicon span {
                 background-color: transparent;
             }
 
-            &:checked ~ .navicon span:before {
+            &:checked ~ .menu-icon .navicon span:before {
                 top:10px;
                 transform: rotate(45deg);
             
             }
 
-            &:checked ~ .navicon span:after {
+            &:checked ~ .menu-icon .navicon span:after {
                 transform: rotate(-45deg);
         
                 top:10px;
