@@ -219,6 +219,10 @@ a {
     .menu-btn {
         display: none;
 
+        &:focus {
+            outline:none;
+        }
+
         @include up-to-desktop {
             &:checked ~  .menu {
                 background-color: $green;
