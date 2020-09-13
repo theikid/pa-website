@@ -44,7 +44,7 @@ export default function HTML(props) {
   };
   
   
-  document.addEventListener('scrollStart', closeMenu, false);
+  // document.addEventListener('scrollStart', closeMenu, false);
 
 
   
