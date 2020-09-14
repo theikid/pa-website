@@ -1,5 +1,9 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from "react";
+import PropTypes from "prop-types";
+
+const isWindowAvailable = typeof window !== 'undefined';
+const isMobile = () => (isWindowAvailable ? window.innerWidth <= 599 : false);
+const offsetMobile = isMobile() ? 300 : 0;
 
 export default function HTML(props) {
   return (
@@ -26,8 +30,8 @@ export default function HTML(props) {
   dangerouslySetInnerHTML={{
     __html: `
     var scroll = new SmoothScroll('a[href*="#"]', {
-   
-      offset: 300,
+      
+      offset: ${ offsetMobile },
       speed: 300,
       
       // History

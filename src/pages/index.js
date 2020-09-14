@@ -196,9 +196,9 @@ const Index = () => {
             <div className="navicon"><span className="burger-line"></span></div>
             </label>
                 <ul className="menu">
-                  <li><a data-scroll href="#intro">{datoCmsNavigation.linkN1}</a></li>
-                  <li><a data-scroll href="#etapes">{datoCmsNavigation.linkN2}</a></li>
-                  <li><a data-scroll href="#pourquoi">{datoCmsNavigation.linkN3}</a></li>
+                  <li><a data-scroll href="#etapes">{datoCmsNavigation.linkN1}</a></li>
+                  <li><a data-scroll href="#pourquoi">{datoCmsNavigation.linkN2}</a></li>
+                  <li><a data-scroll href="#honoraires">{datoCmsNavigation.linkN3}</a></li>
                   <li><a data-scroll href="#temoignages">{datoCmsNavigation.linkN4}</a></li>
                   <li><a data-scroll href="#contact">{datoCmsNavigation.linkN5}</a></li>
                 </ul>
