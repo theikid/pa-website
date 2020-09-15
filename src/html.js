@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const isWindowAvailable = typeof window !== 'undefined';
 const isMobile = () => (isWindowAvailable ? window.innerWidth <= 599 : false);
-const offsetMobile = isMobile() ? 300 : 0;
+const offsetMobile = 300;
 
 export default function HTML(props) {
   return (
@@ -31,7 +31,7 @@ export default function HTML(props) {
     __html: `
     var scroll = new SmoothScroll('a[href*="#"]', {
       
-      offset: ${ offsetMobile },
+      offset: ${ isMobile() ? offsetMobile: 0},
       speed: 300,
       
       // History
