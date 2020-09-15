@@ -221,7 +221,7 @@ const Index = () => {
               </div>
           </section>
          
-          <section id="rencontre" className="container m-t m-b-xl">
+          <section id="rencontre" className="container p-t m-b-xl">
             <img src={birds} alt="Birds" className="birds"/>
             <h2 className="m-b">{datoCmsRencontre.titre}</h2>
             <div className="rencontre-content" dangerouslySetInnerHTML={{ __html: datoCmsRencontre.texte}}></div>
@@ -251,7 +251,7 @@ const Index = () => {
               </div>
                 </div>
             </section>
-            <section id="pourquoi" className="container m-t m-b">
+            <section id="pourquoi" className="container p-t m-b">
               <h2 className="m-b">{datoCmsPourquoi.titre}</h2>
               <div className="blocks-wrapper">
                   {datoCmsPourquoi.pourquoiItem.map(pourquoiItem => {
@@ -323,7 +323,7 @@ const Index = () => {
                 
             </div>
             </section>
-            <section id="contact" className="container m-t m-b">
+            <section id="contact" className="container p-t">
                 <h2 className="m-b">{datoCmsContactblock.titre}</h2>
                 <div className="contact-cards-wrapper">
                     {datoCmsContactblock.contacts.map(contactblock => {
@@ -333,7 +333,7 @@ const Index = () => {
                     })}
                 </div>
             </section>
-            <section id="videos" className="container m-t m-b">
+            <section id="videos" className="container p-t m-b">
                     <h4><span>{datoCmsVideosIgtv.titre}</span></h4>
                     <Carousel
                     infinite={false}
@@ -387,7 +387,7 @@ const Index = () => {
                     })}
                 </Carousel>
             </section>
-            <section id="quote" className="m-b">
+            <section id="quote">
                 <div id="quote-text" dangerouslySetInnerHTML={{ __html: datoCmsQuote.quote }}></div>
                     <div id="quote-bg">
                         <Img
@@ -395,7 +395,7 @@ const Index = () => {
                         />
                     </div>
             </section>
-            <section id="instagrid" className="container m-b">
+            <section id="instagrid" className="container p-t m-b">
                 <h3>Suivez-nous sur Instagram !</h3>
                 <Carousel
                     infinite={false}

@@ -3,7 +3,7 @@ require("dotenv").config({
 });
 const autoprefixer = require('autoprefixer');
 // const theme = require('./src/theme');
-const utils = require('./src/utils');
+// const utils = require('./src/utils');
 
 module.exports = {
     siteMetadata: {

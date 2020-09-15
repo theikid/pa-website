@@ -1,10 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const isWindowAvailable = typeof window !== 'undefined';
-const isMobile = () => (isWindowAvailable ? window.innerWidth <= 599 : false);
-const offsetMobile = 300;
-
 export default function HTML(props) {
   return (
     <html {...props.htmlAttributes}>
@@ -19,6 +15,7 @@ export default function HTML(props) {
         <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15/dist/smooth-scroll.polyfills.min.js"></script>
       </head>
       <body {...props.bodyAttributes}>
+      <div id="test"></div>
         {props.preBodyComponents}
         <div
           key={`body`}
@@ -26,12 +23,18 @@ export default function HTML(props) {
           dangerouslySetInnerHTML={{ __html: props.body }}
         />
         {props.postBodyComponents}
+        
         <script
   dangerouslySetInnerHTML={{
     __html: `
-    var scroll = new SmoothScroll('a[href*="#"]', {
+    var offsetMobile = window.innerWidth <= 599 ? 268 : 0;
+    window.addEventListener('resize', () => { 
+      offsetMobile = window.innerWidth <= 599 ? 268 : 0;
+    });
+    
+     var scroll = new SmoothScroll('a[href*="#"]', {
       
-      offset: ${ isMobile() ? offsetMobile: 0},
+      offset: offsetMobile,
       speed: 300,
       
       // History
@@ -42,7 +45,6 @@ export default function HTML(props) {
   });
 
   var closeMenu = function (event) {
-      console.log("Scroll en cours");
       var input = document.querySelector('.menu-btn');
       input.checked = false;
   };

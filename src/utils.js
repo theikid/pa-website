@@ -1,1 +1,0 @@
-const isMobile = () => (isWindowAvailable ? window.innerWidth <= 599 : false);
