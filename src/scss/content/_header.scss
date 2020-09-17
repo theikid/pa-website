@@ -1,0 +1,310 @@
+@import '../responsive';
+@import '../variables';
+
+.header {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-flow: column nowrap;
+    position: relative;
+
+    .logo {
+        margin-top:1rem;
+        @include for-tablet-portrait-up {
+            margin-top: 1.5rem;
+        }
+        
+        order: 1;
+        .gatsby-image-wrapper {
+            max-width:240px;
+            margin: 0 auto;
+    
+            @include for-tablet-portrait-up {
+                max-width: 340px;
+            }
+    
+        }
+    }
+    
+    .header_image {
+        order:3;
+        margin-top: 2rem;
+        @include for-desktop-up {
+            order:2;
+        }
+    
+        .gatsby-image-wrapper {
+            max-width:980px;
+            height:auto;
+            margin:0 auto;
+        }
+    }
+
+    .no_nav {
+        margin-top: 2.875rem;
+        @include for-desktop-up {
+            margin-top: 2rem;
+        }
+    }
+
+    .navigation {
+        display: block;
+        width:100%;
+        order:2;
+        margin: -0.25rem auto 0;
+        @include for-desktop-up {
+            width:auto;
+            order:3;
+            margin: 2rem auto 0;
+        }
+  
+
+    .menu-icon {
+        cursor: pointer;
+        display: inline-block;
+        user-select: none;
+        z-index: 100;
+        width:0;
+    
+        @include for-desktop-up {
+            position: relative;
+            display:block;
+        }
+
+        .navicon {
+                padding-top: 10px;
+                display:block;
+                height:20px;
+                width:1.5rem;
+                position:absolute;
+                left:1rem;
+                top:1.75rem;
+
+                @include for-tablet-portrait-up {
+                    left:1.5rem;
+                    top:2.75rem;
+                }
+
+                @include for-desktop-up {
+                    display: none;
+                }
+
+            span {
+                background: #000;
+                display: block;
+                height: 2px;
+                width: 100%;
+                border-radius:4px;
+                transition: background 0.4s cubic-bezier(0.57, 0.56, 0.12, 1);
+        
+                &:before, &:after {
+                    background: #000;
+                    content: '';
+                    display: block;
+                    height: 2px;
+                    position: absolute;
+                    transition: all .2s ease-out;
+                    width: 100%;
+                    border-radius:4px;
+                    transition: all 0.4s cubic-bezier(0.57, 0.56, 0.12, 1);
+                }
+        
+                &:before {
+                    top: 0;
+                }
+        
+                &:after {
+                    top: 20px;
+                }
+            }
+        }
+
+    }
+
+    .menu {
+        margin: 0;
+        padding: 0 1rem;
+        width:100%;
+        overflow: hidden;
+        max-height: 0;
+        transition: all 0.4s cubic-bezier(0.57, 0.56, 0.12, 1);
+        display: block;
+
+        @include for-desktop-up {
+            display: flex;
+            max-height:none;
+            order:3;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+        }
+
+        .menu-nav {
+            list-style: none;
+            margin: 0 auto;
+            padding: 0;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: flex-start;
+            align-items: center;
+            width:100%;
+
+            @include for-desktop-up {
+                flex-flow:row nowrap;
+                justify-content: flex;
+                align-items: center;
+            }
+
+            li {
+
+                &:first-child {
+                    margin-top: 1rem;
+                    margin-left: 0rem;
+    
+                    @include for-desktop-up {
+                        margin-top: 0;
+                    }
+                }
+                
+    
+                @include for-desktop-up {
+                    margin-bottom: 0;
+                    margin-left: 0.25rem;
+                }
+    
+                a {
+                    text-transform: uppercase;
+                    font-size: 0.875rem;
+                    font-weight: 500;
+                    letter-spacing: 0.1rem;
+                    display: inline-block;
+                    padding: 1rem 0.5rem;
+                    text-decoration: none;
+                    text-align: left;
+                    color:white;
+                    transition: all 0.4s cubic-bezier(0.57, 0.56, 0.12, 1);
+    
+                    &:hover {
+                        opacity:0.5;
+                    }
+    
+                    @include for-desktop-up {
+                        text-align: center;
+                        padding:0 0.5rem;
+                        color:black;
+    
+                        &:hover {
+                            opacity:1;
+                            color:$green;
+                        }
+                    }
+    
+                }
+            }
+        }
+
+        .menu-rs {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            line-height: 1rem;
+            margin: 1rem 0;
+            @include for-desktop-up {
+                margin: 0 0 0 2rem;
+            }
+            @include for-big-desktop-up {
+                margin: 0 0 0 3.5rem;
+            }
+            padding: 0;
+
+            li {
+                margin-left: 2rem;
+                a {
+                    display: block;
+                    svg {
+                        height:1.25rem;
+                        width:auto;
+
+                        path {
+                            fill:white;
+                            -webkit-transition: fill 0.4s cubic-bezier(0.57, 0.56, 0.12, 1);
+                            -moz-transition: fill 0.4s cubic-bezier(0.57, 0.56, 0.12, 1);
+                            -o-transition: fill 0.4s cubic-bezier(0.57, 0.56, 0.12, 1);
+                            transition: fill 0.4s cubic-bezier(0.57, 0.56, 0.12, 1);
+                            @include for-desktop-up {
+                                fill:black;
+                            }
+                        }
+
+                        &:hover  {
+                            path {
+                                @include for-desktop-up {
+                                    fill:$green;
+                                }
+                            }
+                           
+                        }
+                    }
+                }
+
+                &:first-child {
+                    margin-left: 0;
+                }
+
+                @include for-desktop-up {
+                    margin-left: 1.25rem;
+                }
+          
+
+            }
+        }
+
+       
+
+      }
+
+        .menu-btn {
+            display: none;
+            -webkit-backface-visibility: hidden;
+
+            &:focus {
+                outline:none;
+            }
+
+            @include up-to-desktop {
+                &:checked ~  .menu {
+                    background-color: $green;
+                    max-height: 320px;
+                    padding-bottom: 1rem;
+                }
+
+                &:checked ~ .menu-icon .navicon span {
+                    background-color: transparent;
+                }
+
+                &:checked ~ .menu-icon .navicon span:before {
+                    top:10px;
+                    transform: rotate(45deg);
+                
+                }
+
+                &:checked ~ .menu-icon .navicon span:after {
+                    transform: rotate(-45deg);
+            
+                    top:10px;
+                }
+            }
+
+            @include for-desktop-up {
+                &:checked ~ .menu {
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+
+      
+
+}

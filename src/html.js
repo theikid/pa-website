@@ -27,9 +27,9 @@ export default function HTML(props) {
         <script
   dangerouslySetInnerHTML={{
     __html: `
-    var offsetMobile = window.innerWidth <= 599 ? 268 : 0;
+    var offsetMobile = window.innerWidth <= 599 ? 308 : 0;
     window.addEventListener('resize', () => { 
-      offsetMobile = window.innerWidth <= 599 ? 268 : 0;
+      offsetMobile = window.innerWidth <= 599 ? 308 : 0;
     });
     
      var scroll = new SmoothScroll('a[href*="#"]', {

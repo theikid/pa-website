@@ -7,11 +7,8 @@ import '../scss/main.scss';
 
 import Carousel from '../components/Carousel';
 import ContactCard from '../components/ContactCard';
-
-import logo from "../images/paris_et_ailleurs_logo.png";
-import header from "../images/header_image.jpg";
-import birds from "../images/birds.jpg";
-
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 
 const Index = () => {
@@ -35,22 +32,22 @@ const Index = () => {
               }
             }
         }
-        datoCmsNavigation {
-          linkN1
-          linkN2
-          linkN3
-          linkN4
-          linkN5
-        }
         datoCmsIntro {
           introTitle
           introText
           photo {
-            fluid(maxWidth: 1400, maxHeight: 1580, imgixParams: { fm: "jpg", auto: "compress" }) {
+            fluid(maxWidth: 1400, maxHeight: 1580, imgixParams: { fm: "jpg", auto: "format" }) {
               ...GatsbyDatoCmsFluid
             }
           }
         }
+        bird:file(relativePath: { eq: "images/bird.jpg" }) {
+          childImageSharp {
+              fixed(width: 64, height: 56, quality: 85) {
+                  ...GatsbyImageSharpFixed_withWebp
+              }
+          }
+      }
         datoCmsRencontre {
           titre
           texte
@@ -63,7 +60,7 @@ const Index = () => {
             title
             text
             photo {
-              fluid(maxWidth: 580, maxHeight: 580, imgixParams: { fm: "jpg", auto: "compress" }) {
+              fluid(maxWidth: 580, maxHeight: 580, imgixParams: { fm: "jpg", auto: "format" }) {
                 ...GatsbyDatoCmsFluid
               }
             }
@@ -86,6 +83,8 @@ const Index = () => {
             montant
             pourcentage
           }
+          titreCharteDeDeontologie
+          texteCharteDeDeontologie
         }
         datoCmsTestimony {
           titre
@@ -93,7 +92,7 @@ const Index = () => {
             alt
             title
             originalId
-            fluid(maxWidth: 480, maxHeight: 600, imgixParams: { fm: "jpg", auto: "compress" }) {
+            fluid(maxWidth: 480, maxHeight: 600, imgixParams: { fm: "jpg", auto: "format" }) {
               ...GatsbyDatoCmsFluid
             }
           }
@@ -107,7 +106,7 @@ const Index = () => {
             email
             telephone
             photo {
-                fluid(maxWidth: 513, maxHeight: 513, imgixParams: { fm: "jpg", auto: "compress" }) {
+                fluid(maxWidth: 513, maxHeight: 513, imgixParams: { fm: "jpg", auto: "format" }) {
                   ...GatsbyDatoCmsFluid
                 }
                 title
@@ -122,7 +121,7 @@ const Index = () => {
             url
             buttonPlay
             thumbnail {
-              fluid(maxWidth: 480, maxHeight: 480, imgixParams: { fm: "jpg", auto: "compress" }) {
+              fluid(maxWidth: 480, maxHeight: 480, imgixParams: { fm: "jpg", auto: "format" }) {
                 ...GatsbyDatoCmsFluid
               }
               alt
@@ -131,7 +130,7 @@ const Index = () => {
         }
         datoCmsQuote {
           image {
-            fluid(maxWidth: 1920, maxHeight: 800, imgixParams: { fm: "jpg", auto: "compress" }) {
+            fluid(maxWidth: 1920, maxHeight: 800, imgixParams: { fm: "jpg", auto: "format" }) {
                 ...GatsbyDatoCmsFluid
             }
           }
@@ -142,8 +141,8 @@ const Index = () => {
             node {
               localFile {
                 childImageSharp {
-                  fluid(maxWidth: 400, maxHeight: 400, fit: COVER, cropFocus: CENTER, quality: 100) {
-                      ...GatsbyImageSharpFluid
+                  fluid(maxWidth: 400, maxHeight: 400, fit: COVER, cropFocus: CENTER, quality: 85) {
+                      ...GatsbyImageSharpFluid_withWebp
                   }
                 }
               }
@@ -154,7 +153,8 @@ const Index = () => {
       }
   `);
 
-  const { datoCmsSite, datoCmsNavigation, datoCmsIntro, datoCmsRencontre, datoCmsStep, datoCmsPourquoi, datoCmsHonoraire, datoCmsTestimony, datoCmsContactblock, datoCmsVideosIgtv, datoCmsQuote, allInstaNode } = data;
+  const { datoCmsSite, bird, datoCmsIntro, datoCmsRencontre, datoCmsStep, datoCmsPourquoi, 
+    datoCmsHonoraire, datoCmsTestimony, datoCmsContactblock, datoCmsVideosIgtv, datoCmsQuote, allInstaNode } = data;
   let seo = datoCmsSite.globalSeo;
   let siteName = seo.siteName;
   let siteTitle = siteName + seo.titleSuffix;
@@ -188,21 +188,10 @@ const Index = () => {
         </HelmetDatoCms>
 
           <div id="global-wrapper">
-            <header className="header container m-b">
-            <img src={logo} alt="Logo Paris et Ailleurs" className="logo"/>
-            <img src={header} alt="Header Paris et Ailleurs" className="header_image"/>
-            <input className="menu-btn" type="checkbox" id="menu-btn" />
-            <label className="menu-icon" htmlFor="menu-btn" id="mobile-menu-btn">
-            <div className="navicon"><span className="burger-line"></span></div>
-            </label>
-                <ul className="menu">
-                  <li><a data-scroll href="#etapes">{datoCmsNavigation.linkN1}</a></li>
-                  <li><a data-scroll href="#pourquoi">{datoCmsNavigation.linkN2}</a></li>
-                  <li><a data-scroll href="#honoraires">{datoCmsNavigation.linkN3}</a></li>
-                  <li><a data-scroll href="#temoignages">{datoCmsNavigation.linkN4}</a></li>
-                  <li><a data-scroll href="#contact">{datoCmsNavigation.linkN5}</a></li>
-                </ul>
-          </header>
+          <Header 
+            linkBack={false}
+            showNav={true}
+          />
           <section id="intro">
               <div className="intro-bg">
               <div className="intro-wrapper container">
@@ -222,7 +211,11 @@ const Index = () => {
           </section>
          
           <section id="rencontre" className="container p-t m-b-xl">
-            <img src={birds} alt="Birds" className="birds"/>
+          <div className="bird">
+            <Img
+            fixed={bird.childImageSharp.fixed}
+            />
+        </div>
             <h2 className="m-b">{datoCmsRencontre.titre}</h2>
             <div className="rencontre-content" dangerouslySetInnerHTML={{ __html: datoCmsRencontre.texte}}></div>
           </section>
@@ -273,6 +266,10 @@ const Index = () => {
                                     )
                             })}
                     </ul>
+                    <div id="charte-deontologie" className="container m-t">
+                    <h4><span>{datoCmsHonoraire.titreCharteDeDeontologie}</span></h4>
+                    <div className="charte-text" dangerouslySetInnerHTML={{ __html: datoCmsHonoraire.texteCharteDeDeontologie}}></div>
+                </div>
                 </div>
             </section>
             <section id="temoignages">
@@ -442,7 +439,7 @@ const Index = () => {
                       })}
                 </Carousel>
             </section>
-            <footer><div className="container">© Paris et ailleurs 2020 - Tous droits réservés</div></footer>
+            <Footer/>
           </div>
       </>
   );
