@@ -266,7 +266,7 @@ const Index = () => {
                                     )
                             })}
                     </ul>
-                    <div id="charte-deontologie" className="container m-t">
+                    <div id="charte-deontologie" className="m-t">
                     <h4><span>{datoCmsHonoraire.titreCharteDeDeontologie}</span></h4>
                     <div className="charte-text" dangerouslySetInnerHTML={{ __html: datoCmsHonoraire.texteCharteDeDeontologie}}></div>
                 </div>

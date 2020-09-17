@@ -507,7 +507,6 @@ a {
 }
 
 #charte-deontologie {
-    max-width: 842px;
     h4 {
         font-size: 1.25rem;
         font-weight: 300;
@@ -543,10 +542,9 @@ a {
 
     .charte-text {
         text-align: center;
-
+        font-size: 1.125rem;
         a {
             color:black;
-
             &:hover {
                 color:$green;
             }
