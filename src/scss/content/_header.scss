@@ -11,6 +11,7 @@
 
     .logo {
         margin-top:1rem;
+        text-align: center;
         @include for-tablet-portrait-up {
             margin-top: 1.5rem;
         }
@@ -23,13 +24,30 @@
             @include for-tablet-portrait-up {
                 max-width: 340px;
             }
-    
         }
+
+        span {
+            display: inline-block;
+            width:100%;
+            max-width: 160px;
+            border-top:1px solid #666;
+            margin-top: 0.25rem;
+            padding-top: 0.4rem;
+            font-size: 0.75rem;
+            font-weight: 300;
+            color:#666;
+
+            @include for-tablet-portrait-up {
+                max-width: 260px;
+                padding-top: 0.6875rem;
+                font-size: 1.3125rem;
+            }
+        } 
     }
     
     .header_image {
         order:3;
-        margin-top: 2rem;
+        margin-top: 0;
         @include for-desktop-up {
             order:2;
         }
@@ -52,7 +70,7 @@
         display: block;
         width:100%;
         order:2;
-        margin: -0.25rem auto 0;
+        margin: -0.5rem auto 0;
         @include for-desktop-up {
             width:auto;
             order:3;
@@ -123,7 +141,7 @@
     }
 
     .menu {
-        margin: 0;
+        margin: 0 0 1rem 0;
         padding: 0 1rem;
         width:100%;
         overflow: hidden;

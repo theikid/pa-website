@@ -61,7 +61,7 @@ const {datoCmsNavigation,datoCmsSocialLink,Logo,Banner} = data;
             loading="eager"
             />
             ))}
-        
+        <span>Chasseuses immobilier</span>
         </div>
          <div className={showNav ? 'header_image' : 'header_image no_nav'}>
             <Img
