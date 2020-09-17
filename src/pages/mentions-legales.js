@@ -54,7 +54,7 @@ const MentionLegales = () => {
             favicon={datoCmsSite.faviconMetaTags}
         >
             {/* General tags */}
-            <title>{siteTitle}</title>
+            <title>{datoCmsLegalNotice.title + " - " + siteName}</title>
             <meta name="description" content={siteDescription} />
             {/* OpenGraph tags */}
             <meta property="og:site_name" content={siteName} />
@@ -74,7 +74,7 @@ const MentionLegales = () => {
             linkBack={true}
             showNav={false}
           />
-            <section id="mentions_legales" className="container m-b">
+            <section id="mentions_legales" className="container m-b-xl">
               <h1>{datoCmsLegalNotice.title}</h1>
               <div className="legals-wrapper" dangerouslySetInnerHTML={{ __html: datoCmsLegalNotice.mentions }}></div>
             </section>

@@ -1,6 +1,7 @@
 import React from 'react';
 import {useStaticQuery, graphql, Link} from 'gatsby';
 import Img from 'gatsby-image';
+import Branding from './Branding';
 
 import '../scss/content/_header.scss';
 
@@ -20,13 +21,7 @@ const Header = ({linkBack, showNav}) => {
             linkedin
             facebook
           }
-        Logo:file(relativePath: { eq: "images/paris_et_ailleurs_logo.png" }) {
-            childImageSharp {
-                fluid(maxWidth: 340, maxHeight: 60, quality: 85) {
-                    ...GatsbyImageSharpFluid_withWebp
-                }
-            }
-        }
+       
         Banner:file(relativePath: { eq: "images/header_image.jpg" }) {
             childImageSharp {
                 fluid(maxWidth: 980, maxHeight: 164, quality: 85) {
@@ -37,7 +32,7 @@ const Header = ({linkBack, showNav}) => {
       }
 `);
 
-const {datoCmsNavigation,datoCmsSocialLink,Logo,Banner} = data;
+const {datoCmsNavigation,datoCmsSocialLink,Banner} = data;
 
     return (
         <>
@@ -48,20 +43,10 @@ const {datoCmsNavigation,datoCmsSocialLink,Logo,Banner} = data;
         alt="Retour à l'accueil"
         title="Retour à l'accueil"
         >
-            <Img
-            fluid={Logo.childImageSharp.fluid}
-            alt="Logo Paris et Ailleurs"
-            fadeIn={false}
-            loading="eager"
-            /></Link>) : (
-            <Img
-            fluid={Logo.childImageSharp.fluid}
-            alt="Logo Paris et Ailleurs"
-            fadeIn={false}
-            loading="eager"
-            />
+            <Branding/></Link>
+            ) : (
+           <Branding/>
             ))}
-        <span>Chasseuses immobilier</span>
         </div>
          <div className={showNav ? 'header_image' : 'header_image no_nav'}>
             <Img
