@@ -40,8 +40,8 @@ a {
 
 .container {
     max-width: 1328px;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 2rem;
+    padding-right: 2rem;
     margin-right: auto;
     margin-left: auto;
 }
@@ -56,8 +56,8 @@ a {
         @include for-tablet-landscape-up {
             background-color: transparent;
             padding-top: 3rem;
-            margin-bottom: 6rem;
-            height:95vh;
+            margin-bottom: 3.5rem;
+            height:85vh;
         }
 
         .intro-bg {
@@ -86,6 +86,11 @@ a {
                     @include for-tablet-landscape-up {
                         width:50%;
                         padding-right: 3rem;
+                        padding-left: 2rem;
+                    }
+
+                    @include for-big-desktop-up {
+                        padding-left: 0;
                     }
 
                     h1 {
@@ -141,7 +146,7 @@ a {
         position: absolute;
         right:0;
         top:0;
-        height:100vh;
+        height:85vh;
         width:100%;
         max-width:48vw;
         z-index:100;
