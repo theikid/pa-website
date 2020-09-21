@@ -589,7 +589,7 @@ a {
                 width: 20px;
                 height: 20px;
                 margin: 0px;
-                padding: 0 1.5rem 0 0;
+                padding: 0 1.25rem 0 0;
 
                 cursor: pointer;
 
@@ -613,7 +613,10 @@ a {
                     &:before
                     {
                         font-family: 'slick';
-                        font-size: 3rem;
+                        font-size: 2.5rem;
+                        @include for-tablet-landscape-up {
+                            font-size: 3rem;
+                        }
                         line-height: 20px;
                     
                         position: absolute;
@@ -740,6 +743,10 @@ a {
         margin: 0 -0.75rem;
     }
 
+    .slick-dots {
+        margin-top: 0.5rem;
+    }
+
     .thumb-wrapper {
         position: relative;
         border-radius: 0.5rem;
@@ -826,7 +833,7 @@ a {
         font-family: $font-family-quote;
         width:90%;
         p {
-            font-size: 2.5rem;
+            font-size: 2.25rem;
             line-height: 2.375rem;
             margin: 0 0 1rem 0;
             @include for-tablet-landscape-up {
@@ -878,6 +885,9 @@ a {
         margin: 0 -8px;
     }
     
+    .slick-dots {
+        margin-top: 0.5rem;
+    }
 
     .slick-slide {
 
