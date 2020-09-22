@@ -66,14 +66,14 @@ module.exports = {
         //       },
         //   },
         // },
-        // {
-        //     resolve: 'gatsby-plugin-google-analytics',
-        //     options: {
-        //         trackingId : utils.GA_UID,
-        //         anonymize  : true,
-        //         respectDNT : true
-        //     },
-        // },
+        {
+            resolve: 'gatsby-plugin-google-analytics',
+            options: {
+                trackingId : "UA-178693743-1",
+                anonymize  : true,
+                respectDNT : true
+            },
+        },
         {
             resolve: 'gatsby-plugin-sass',
             options: {
