@@ -24,13 +24,11 @@ const Index = () => {
               titleSuffix
               fallbackSeo {
                 description
-                image {
-                  fixed(width: 1200) {
-                    src
-                  }
-                }
               }
             }
+        }
+        ogimage:file(relativePath: {eq: "images/fb-image.png"}) {
+          publicURL
         }
         datoCmsIntro {
           introTitle
@@ -47,7 +45,7 @@ const Index = () => {
                   ...GatsbyImageSharpFixed_withWebp
               }
           }
-      }
+        }
         datoCmsRencontre {
           titre
           texte
@@ -153,14 +151,14 @@ const Index = () => {
       }
   `);
 
-  const { datoCmsSite, bird, datoCmsIntro, datoCmsRencontre, datoCmsStep, datoCmsPourquoi, 
+  const { datoCmsSite, ogimage, bird, datoCmsIntro, datoCmsRencontre, datoCmsStep, datoCmsPourquoi, 
     datoCmsHonoraire, datoCmsTestimony, datoCmsContactblock, datoCmsVideosIgtv, datoCmsQuote, allInstaNode } = data;
   let seo = datoCmsSite.globalSeo;
   let siteName = seo.siteName;
   let siteTitle = siteName + seo.titleSuffix;
   let siteDescription = seo.fallbackSeo.description;
-  let ogimage = seo.fallbackSeo.image.fixed.src;
   const instaurl = "https://www.instagram.com/p/";
+  let ogimageurl = (window.location.href.replace(/\/$/, '') + ogimage.publicURL);
 
   return (
       <>
@@ -180,7 +178,7 @@ const Index = () => {
             <meta property="og:url" content="https://www.parisetailleurs.fr" />
             <meta property="og:description" content="" />
             <meta property="og:type" content="website" />
-            <meta property="og:image" content={ogimage} />
+            <meta property="og:image" content={ogimageurl} />
             <meta name="apple-mobile-web-app-capable" content="yes" />
             <meta name="apple-mobile-web-app-title" content={siteName} />
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>

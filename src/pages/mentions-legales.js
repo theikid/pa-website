@@ -5,7 +5,9 @@ import '../scss/main.scss';
 import '../scss/content/_terms.scss';
 
 import Header from '../components/Header';
-import Footer from '../components/Footer'
+import Footer from '../components/Footer';
+
+import ogimage from "../images/fb-image.png";
 
 
 const MentionLegales = () => {
@@ -41,7 +43,6 @@ const MentionLegales = () => {
   let siteName = seo.siteName;
   let siteTitle = siteName + seo.titleSuffix;
   let siteDescription = seo.fallbackSeo.description;
-  let ogimage = seo.fallbackSeo.image.fixed.src;
   // const instaurl = "https://www.instagram.com/p/";
 
   return (
