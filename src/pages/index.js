@@ -27,9 +27,6 @@ const Index = () => {
               }
             }
         }
-        ogimage:file(relativePath: {eq: "images/fb-image.png"}) {
-          publicURL
-        }
         datoCmsIntro {
           introTitle
           introText
@@ -158,11 +155,6 @@ const Index = () => {
   let siteTitle = siteName + seo.titleSuffix;
   let siteDescription = seo.fallbackSeo.description;
   const instaurl = "https://www.instagram.com/p/";
-  ogimageurl = ogimage.publicURL;
-  if (typeof window !== `undefined`) {
-    let ogimageurl = (window.location.href.replace(/\/$/, '') + ogimage.publicURL);
-  }
- 
 
   return (
       <>
@@ -182,7 +174,7 @@ const Index = () => {
             <meta property="og:url" content="https://www.parisetailleurs.fr" />
             <meta property="og:description" content="" />
             <meta property="og:type" content="website" />
-            <meta property="og:image" content={ogimageurl} />
+            <meta property="og:image" content="https://www.datocms-assets.com/32166/1598479751-4938487721484651854671022327994384647192576o.png?auto=format&w=1200" />
             <meta name="apple-mobile-web-app-capable" content="yes" />
             <meta name="apple-mobile-web-app-title" content={siteName} />
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
