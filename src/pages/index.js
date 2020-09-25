@@ -158,6 +158,7 @@ const Index = () => {
   let siteTitle = siteName + seo.titleSuffix;
   let siteDescription = seo.fallbackSeo.description;
   const instaurl = "https://www.instagram.com/p/";
+  ogimageurl = ogimage.publicURL;
   if (typeof window !== `undefined`) {
     let ogimageurl = (window.location.href.replace(/\/$/, '') + ogimage.publicURL);
   }
