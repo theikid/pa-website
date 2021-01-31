@@ -148,7 +148,7 @@ const Index = () => {
       }
   `);
 
-  const { datoCmsSite, ogimage, bird, datoCmsIntro, datoCmsRencontre, datoCmsStep, datoCmsPourquoi, 
+  const { datoCmsSite, bird, datoCmsIntro, datoCmsRencontre, datoCmsStep, datoCmsPourquoi, 
     datoCmsHonoraire, datoCmsTestimony, datoCmsContactblock, datoCmsVideosIgtv, datoCmsQuote, allInstaNode } = data;
   let seo = datoCmsSite.globalSeo;
   let siteName = seo.siteName;
