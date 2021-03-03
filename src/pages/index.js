@@ -1,6 +1,7 @@
 import React from 'react';
 import { HelmetDatoCms } from 'gatsby-source-datocms';
 import {useStaticQuery, graphql} from 'gatsby';
+import { GatsbyImage } from "gatsby-plugin-image";
 import Img from 'gatsby-image';
 import '../scss/main.scss';
 
