@@ -20,6 +20,7 @@ module.exports = {
     plugins: [
         'gatsby-plugin-react-helmet',
         'gatsby-plugin-sharp',
+        `gatsby-plugin-gatsby-cloud`,
         'gatsby-transformer-sharp',
         {
             resolve: `gatsby-source-instagram`,
