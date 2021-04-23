@@ -70,17 +70,7 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-robots-txt',
             options: {
-                env: {
-                    development: {
-                        policy: [{userAgent: '*', disallow: ['/']}]
-                    },
-                    preprod: {
-                        policy: [{userAgent: '*', disallow: ['/']}]
-                    },
-                    production: {
-                        policy: [{userAgent: '*', allow: '/'}]
-                    }
-                }
+                policy: [{ userAgent: '*', allow: '/' }]
             }
         }
     ],
