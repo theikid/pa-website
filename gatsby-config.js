@@ -2,8 +2,6 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 const autoprefixer = require('autoprefixer');
-// const theme = require('./src/theme');
-// const utils = require('./src/utils');
 
 module.exports = {
     siteMetadata: {
@@ -22,12 +20,6 @@ module.exports = {
         'gatsby-plugin-sharp',
         'gatsby-plugin-gatsby-cloud',
         'gatsby-transformer-sharp',
-        {
-            resolve: `gatsby-source-instagram`,
-            options: {
-                username: `6695486890`,
-            },
-        },
         {
             resolve: 'gatsby-source-filesystem',
             options: {
