@@ -7,7 +7,7 @@ import '../scss/_carousel.scss';
 
 const Carousel = (props) => {
     const {
-        children,  infinite, responsive, arrows, slidesToShow, autoplay, autoplaySpeed
+        children,  infinite, responsive, arrows, slidesToShow, slidesToScroll, autoplay, autoplaySpeed
     } = props;
 
     return (
@@ -21,6 +21,7 @@ const Carousel = (props) => {
                 lazyload="ondemand"
                 responsive={responsive}
                 slidesToShow={slidesToShow}
+                slidesToScroll={slidesToScroll}
                 infinite={infinite}
                 swipeToSlide
             >

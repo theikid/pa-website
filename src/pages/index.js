@@ -1,7 +1,7 @@
 import React from 'react';
 import { HelmetDatoCms } from 'gatsby-source-datocms';
 import {useStaticQuery, graphql} from 'gatsby';
-import { GatsbyImage } from "gatsby-plugin-image";
+import {GatsbyImage, getImage } from "gatsby-plugin-image";
 import Img from 'gatsby-image';
 import '../scss/main.scss';
 
@@ -132,16 +132,29 @@ const Index = () => {
           }
           quote
         }
+        allInstagramContent(limit: 18, sort: {fields: timestamp, order: DESC}) {
+          edges {
+            node {
+              id
+              thumbnail_url
+              permalink
+              localImage {
+                childImageSharp {
+                  gatsbyImageData(width: 500, aspectRatio: 1)
+                }
+              }
+            }
+          }
+        }
       }
   `);
 
   const { datoCmsSite, bird, datoCmsIntro, datoCmsRencontre, datoCmsStep, datoCmsPourquoi, 
-    datoCmsHonoraire, datoCmsTestimony, datoCmsContactblock, datoCmsVideosIgtv, datoCmsQuote } = data;
+    datoCmsHonoraire, datoCmsTestimony, datoCmsContactblock, datoCmsVideosIgtv, datoCmsQuote, allInstagramContent } = data;
   let seo = datoCmsSite.globalSeo;
   let siteName = seo.siteName;
   let siteTitle = siteName + seo.titleSuffix;
   let siteDescription = seo.fallbackSeo.description;
-  const instaurl = "https://www.instagram.com/p/";
 
   return (
       <>
@@ -260,6 +273,7 @@ const Index = () => {
                     infinite={false}
                     arrows={false}
                     slidesToShow={3}
+                    slidesToScroll={3}
                     autoplay={false}
                     autoplaySpeed={4000}
                     responsive={[
@@ -317,6 +331,7 @@ const Index = () => {
                     infinite={false}
                     arrows={false}
                     slidesToShow={3}
+                    slidesToScroll={3}
                     responsive={[
                         {
                             breakpoint: 1024,
@@ -372,6 +387,58 @@ const Index = () => {
                             fluid={datoCmsQuote.image.fluid}
                         />
                     </div>
+            </section>
+            <section id="instagrid" className="container p-t m-b">
+              <h3>Suivez-nous sur Instagram !</h3>
+              <Carousel
+                  infinite={false}
+                  arrows={false}
+                  slidesToShow={6}
+                  slidesToScroll={6}
+                  responsive={[
+                      {
+                          breakpoint: 1024,
+                          settings: {
+                              slidesToShow: 4,
+                              slidesToScroll: 4
+                          }
+                      },
+                      {
+                          breakpoint: 900,
+                          settings: {
+                              slidesToShow: 3,
+                              slidesToScroll: 3
+                          }
+                      },
+                      {
+                          breakpoint: 480,
+                          settings: {
+                              slidesToShow: 1,
+                              slidesToScroll: 1
+                          }
+                      }
+                  ]}
+              >
+                    {allInstagramContent.edges.slice(0,12).map(({node}) => {
+                      const image = getImage(node.localImage);
+                      if (typeof image !== 'undefined') {
+                        return (
+                            <div key={node.id}>
+                                <a href={node.permalink} target="_blank" rel="noreferrer"  >
+                                    <GatsbyImage
+                                        image={image}
+                                        alt="Voir sur Instagram"
+                                        title="Voir sur Instagram"
+                                    />
+                                    
+                                </a>
+                            </div>
+                        );
+                      } else {
+                        return (null);
+                      }
+                    })}
+              </Carousel>
             </section>
             <Footer/>
           </div>

@@ -17,6 +17,7 @@ module.exports = {
     },
     plugins: [
         'gatsby-plugin-react-helmet',
+        'gatsby-plugin-image',
         'gatsby-plugin-sharp',
         'gatsby-plugin-gatsby-cloud',
         'gatsby-transformer-sharp',
@@ -71,6 +72,12 @@ module.exports = {
             resolve: 'gatsby-plugin-robots-txt',
             options: {
                 policy: [{ userAgent: '*', allow: '/' }]
+            }
+        },
+        {
+            resolve: `gatsby-source-instagram-all`,
+            options: {
+              access_token: "IGQVJXWGJ3MlE5RXl0WTR1MmtGSW1ZAdHBFd213ZAHl6Q2ZAOUlpoZAUFFRDVCS2dReUk0Y1VZANmFQVzlyWUxiS2ZAfaXk2WkJMRFNnbGhKMnlCSWtiWllxd0JCUFRyVnVBd0hKZAGRzNUxjVkpXYUU3dVVKcAZDZD"
             }
         }
     ],
