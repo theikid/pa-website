@@ -132,25 +132,12 @@ const Index = () => {
           }
           quote
         }
-        allInstaNode(limit: 6, sort: {fields: timestamp, order: DESC}) {
-          edges {
-            node {
-              localFile {
-                childImageSharp {
-                  fluid(maxWidth: 400, maxHeight: 400, fit: COVER, cropFocus: CENTER, quality: 85) {
-                      ...GatsbyImageSharpFluid_withWebp
-                  }
-                }
-              }
-              id
-            }
-          }
-        }
+        
       }
   `);
 
   const { datoCmsSite, bird, datoCmsIntro, datoCmsRencontre, datoCmsStep, datoCmsPourquoi, 
-    datoCmsHonoraire, datoCmsTestimony, datoCmsContactblock, datoCmsVideosIgtv, datoCmsQuote, allInstaNode } = data;
+    datoCmsHonoraire, datoCmsTestimony, datoCmsContactblock, datoCmsVideosIgtv, datoCmsQuote } = data;
   let seo = datoCmsSite.globalSeo;
   let siteName = seo.siteName;
   let siteTitle = siteName + seo.titleSuffix;
@@ -387,53 +374,7 @@ const Index = () => {
                         />
                     </div>
             </section>
-            <section id="instagrid" className="container p-t m-b">
-                <h3>Suivez-nous sur Instagram !</h3>
-                <Carousel
-                    infinite={false}
-                    arrows={false}
-                    slidesToShow={6}
-                    responsive={[
-                        {
-                            breakpoint: 1024,
-                            settings: {
-                                slidesToShow: 4,
-                                slidesToScroll: 4
-                            }
-                        },
-                        {
-                            breakpoint: 900,
-                            settings: {
-                                slidesToShow: 3,
-                                slidesToScroll: 3
-                            }
-                        },
-                        {
-                            breakpoint: 480,
-                            settings: {
-                                slidesToShow: 1,
-                                slidesToScroll: 1
-                            }
-                        }
-                    ]}
-                >
-                      {allInstaNode.edges.map(({node}) => {
-                          let posturl =  instaurl + node.id + "/";
-                          return (
-                              <div key={node.id}>
-                                  <a href={posturl} target="_blank" rel="noreferrer">
-                                      <Img
-                                          fluid={node.localFile.childImageSharp.fluid}
-                                          alt="Voir sur Instagram"
-                                          title="Voir sur Instagram"
-                                          durationFadeIn={300}
-                                      />
-                                  </a>
-                              </div>
-                          );
-                      })}
-                </Carousel>
-            </section>
+           
             <Footer/>
           </div>
       </>

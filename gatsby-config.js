@@ -22,12 +22,12 @@ module.exports = {
         'gatsby-plugin-sharp',
         'gatsby-plugin-gatsby-cloud',
         'gatsby-transformer-sharp',
-        {
-            resolve: `gatsby-source-instagram`,
-            options: {
-                username: `6695486890`,
-            },
-        },
+        // {
+        //     resolve: `gatsby-source-instagram`,
+        //     options: {
+        //         username: `6695486890`,
+        //     },
+        // },
         {
             resolve: 'gatsby-source-filesystem',
             options: {
