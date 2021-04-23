@@ -53,20 +53,7 @@ module.exports = {
               disableLiveReload: false,
         
             },
-          },
-        // {
-        //   resolve: "gatsby-source-graphql",
-        //   options: {
-        //       typeName: "DatoCMS",
-        //       fieldName: "datocms",
-        //       url: "https://graphql.datocms.com/",
-        //       // HTTP headers
-        //       headers: {
-        //           // Learn about environment variables: https://gatsby.dev/env-vars
-        //           Authorization: `Bearer ${process.env.DATO_API_KEY}`,
-        //       },
-        //   },
-        // },
+        },
         {
             resolve: 'gatsby-plugin-google-analytics',
             options: {
